@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"os"
 	"strings"
 	"time"
 
@@ -18,11 +17,6 @@ func shellHandler(s ssh.Session) {
 		fmt.Fprintln(s, "Must be PTY")
 		s.Exit(1)
 		return
-	}
-
-	shell := os.Getenv("SHELL")
-	if shell == "" {
-		shell = "/bin/sh"
 	}
 
 	pty, err := gopty.New(40, 30)
