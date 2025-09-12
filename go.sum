@@ -1,9 +1,9 @@
 github.com/admpub/color v1.8.1 h1:kgx9vC9+KvQ8L1RieP1TZa2qq3lMda+duRKcpZt9BU8=
 github.com/admpub/color v1.8.1/go.mod h1:3fk9BXRe+f3UjWSTgVjqUcI4Ei05fLaEPjVajrqMJhY=
-github.com/admpub/conpty v0.2.1 h1:LJieR5COtWY+DgfcH+DOkCJO4egQPbFZgwPyC3IyZXk=
-github.com/admpub/conpty v0.2.1/go.mod h1:Gv+2Vra6eNmHGNLX6xYcTj9UyDGoqqgm6z6Xbt9iHMY=
-github.com/admpub/gopty v0.1.4 h1:h+i46AFEWbs0wnZvOhnOh+GfbnfJjWT1Ed8jQS5nq/w=
-github.com/admpub/gopty v0.1.4/go.mod h1:Sok5mjCpZY5fwvXCud+H/kw2iagU3KQxVKidoI3gwn0=
+github.com/admpub/conpty v0.2.4 h1:Ve2K9vaxin0kHLQdsI5bIVrxa7zIbQKVU+DE2g3SGsQ=
+github.com/admpub/conpty v0.2.4/go.mod h1:w/ZOnamrDM6dgex8MDdCiZbsFd7djFeR4HH/aJT8YjQ=
+github.com/admpub/gopty v0.1.5 h1:BtLkWL/Xgzgy1xGs7aPHd9QnDbTMXDOLmXXCWBg4tuY=
+github.com/admpub/gopty v0.1.5/go.mod h1:CPSV+Mo6OSyhqE6Mg54rOWtql9LzuYhPVRWdXcqhgl4=
 github.com/admpub/log v1.4.0 h1:iNar5ZyjMi1ntRUtSIugEaR4pt6DZoNZH/3zw1VbR/Q=
 github.com/admpub/log v1.4.0/go.mod h1:bo7BVOu/p+GdOQnv5XhPiPQ60nhLRMhYbAQgKE0gYGw=
 github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be h1:9AeTilPcZAjCFIImctFaOjnTIavg87rW78vTPkQqLI8=
