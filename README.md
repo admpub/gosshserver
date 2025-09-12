@@ -1,0 +1,1 @@
+go install github.com/admpub/gosshserver/cmd/gosshserver@latest

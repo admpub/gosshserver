@@ -1,0 +1,4 @@
+ssh.key*
+/gosshserver
+/cmd/gosshserver/gosshserver
+testdata
