@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"strings"
-	"time"
 
 	"github.com/admpub/gopty"
 	"github.com/gliderlabs/ssh"
@@ -50,23 +48,6 @@ func shellHandler(s ssh.Session) {
 		io.Copy(pty, s)
 		s.Close()
 	}()
-
-	// == welcome message ==
-
-	welcome := []string{
-		time.Now().Format(time.RFC3339),
-		`Welcome ` + s.User() + ", " + s.RemoteAddr().String(),
-	}
-	var maxLen int
-	for _, line := range welcome {
-		maxLen = max(maxLen, len(line)+2)
-	}
-	headAndFoot := `+` + strings.Repeat(`-`, maxLen) + "+\n"
-	s.Write([]byte(headAndFoot))
-	for _, line := range welcome {
-		s.Write([]byte(`| ` + line + strings.Repeat(` `, maxLen-2-len(line)) + " |\n"))
-	}
-	s.Write([]byte(headAndFoot))
 
 	// == wait ==
 
