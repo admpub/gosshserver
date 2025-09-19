@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"os"
@@ -27,7 +28,17 @@ func main() {
 		conf = `server.properties`
 	}
 	if _, err := os.Stat(conf); err != nil && os.IsNotExist(err) {
-		os.WriteFile(conf, nil, 0664)
+		b := bytes.NewBuffer(nil)
+		p := properties.NewProperties()
+		p.SetValue(`server-ip`, `127.0.0.1`)
+		p.SetValue(`server-port`, `10022`)
+		p.SetValue(`term-user`, `root`)
+		p.SetValue(`term-password`, ``)
+		p.SetValue(`term-key-path`, `ssh.key`)
+		p.SetValue(`trusted-user-ca-keys[0]`, ``)
+		p.SetComment(`trusted-user-ca-keys[0]`, `# trusted-user-ca-keys 支持多个，格式：file:/path/to/ca.pub 或 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr... user@host`)
+		p.Write(b, properties.UTF8)
+		os.WriteFile(conf, b.Bytes(), 0664)
 	}
 	cfg := gosshserver.Config{}
 	// 解析 server.properties

@@ -26,6 +26,11 @@ func (c *Config) SetDefaults() error {
 	var err error
 	if len(c.TrustedUserCAKeys) > 0 {
 		for _, pk := range c.TrustedUserCAKeys {
+			pk = strings.TrimSpace(pk)
+			if len(pk) == 0 {
+				continue
+			}
+			// 支持 file:/path/to/ca.pub 或 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr... user@host
 			var data []byte
 			if cut, found := strings.CutPrefix(pk, `file:`); found {
 				data, err = os.ReadFile(cut)
