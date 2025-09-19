@@ -13,11 +13,12 @@ import (
 
 func shellHandler(s ssh.Session) {
 	ptyReq, winCh, isPty := s.Pty()
-	if !isPty {
-		fmt.Fprintln(s, "Must be PTY")
-		s.Exit(1)
-		return
-	}
+	// if !isPty {
+	// 	fmt.Fprintln(s, "Must be PTY")
+	// 	s.Exit(1)
+	// 	return
+	// }
+	_ = isPty
 
 	pty, err := gopty.New(40, 30)
 	if err != nil {
@@ -26,7 +27,11 @@ func shellHandler(s ssh.Session) {
 		s.Exit(1)
 		return
 	}
-	pty.SetENV([]string{fmt.Sprintf("TERM=%s", ptyReq.Term)})
+
+	// set environment variables
+	if len(ptyReq.Term) > 0 {
+		pty.SetENV([]string{fmt.Sprintf("TERM=%s", ptyReq.Term)})
+	}
 
 	defer func() { _ = pty.Close() }()
 	err = gopty.Start(pty)

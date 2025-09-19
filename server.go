@@ -36,7 +36,7 @@ func Serve(cfg Config, privateKeyPEM []byte) error {
 		PublicKeyHandler: publicKeyHandler(cfg),
 		PasswordHandler:  passwordHandler(cfg),
 		Version:          `0.0.1`,
-		Banner:           `Welcome`,
+		Banner:           `欢迎使用 SSH 服务` + "\n",
 	}
 	s.AddHostKey(privateKeySigner)
 
