@@ -13,6 +13,8 @@ type Config struct {
 	User                    string            `properties:"term-user,default=root"`
 	Password                string            `properties:"term-password,default="`
 	KeyPath                 string            `properties:"term-key-path,default=ssh.key"`
+	LocalPortForwarding     bool              `properties:"local-port-forwarding,default=false"`
+	ReversePortForwarding   bool              `properties:"reverse-port-forwarding,default=false"`
 	TrustedUserCAKeys       []string          `properties:"trusted-user-ca-keys,default="`
 	TrustedUserCAKeysParsed []gossh.PublicKey `properties:"-"`
 	initialized             bool              `properties:"-"`

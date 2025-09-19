@@ -36,13 +36,13 @@ func Serve(cfg Config, privateKeyPEM []byte) error {
 		PublicKeyHandler: publicKeyHandler(cfg),
 		PasswordHandler:  passwordHandler(cfg),
 		Version:          `0.0.1`,
-		Banner:           `欢迎使用 SSH 服务` + "\n",
-		BannerHandler:    bannerHandler,
+		//Banner:           `欢迎使用 SSH 服务` + "\n",
+		BannerHandler: bannerHandler,
 		LocalPortForwardingCallback: func(ctx ssh.Context, dhost string, dport uint32) bool {
-			return true
+			return cfg.LocalPortForwarding
 		},
 		ReversePortForwardingCallback: func(ctx ssh.Context, dhost string, dport uint32) bool {
-			return true
+			return cfg.ReversePortForwarding
 		},
 	}
 	s.AddHostKey(privateKeySigner)
